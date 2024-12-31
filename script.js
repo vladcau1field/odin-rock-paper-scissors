@@ -2,35 +2,24 @@ let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
-  let value = Math.floor(Math.random() * 100) + 1;
-  if (value <= 30) {
-    value = "rock";
-  } else if (value > 30 && value <= 60) {
-    value = "paper";
+  const randomNumber = Math.random();
+  if (randomNumber < 0.33) {
+    return "rock";
+  } else if (randomNumber < 0.66) {
+    return "paper";
   } else {
-    value = "scissors";
+    return "scissors";
   }
-
-  return value;
 }
-
 function getHumanChoice() {
-  let choice = prompt("paper? rock? scissors?");
-  if (choice === "paper") {
-    choice = "paper";
-  } else if (choice === "rock") {
-    choice = "rock";
-  } else if (choice === "scissors") {
-    choice = "scissors";
-  } else if (choice === null) {
-    getHumanChoice();
+  let choice = prompt("rock, paper, or scissors?");
+  choice = choice.toLowerCase();
+  if (choice === "rock" || choice === "paper" || choice === "scissors") {
+    return choice;
   } else {
-    let wrongChoice = choice;
-    alert(`${wrongChoice} is NOT what i need. 
-      CHOOSE YOUR FIGHTER`);
-    choice = null;
+    alert("invalid choice. CHOOSE YOUR FIGHTER");
+    return getHumanChoice();
   }
-  return choice != null ? choice : getHumanChoice();
 }
 
 function playRound(humanChoice, computerChoice) {
