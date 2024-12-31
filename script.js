@@ -32,3 +32,19 @@ function getHumanChoice() {
   }
   return choice != null ? choice : getHumanChoice();
 }
+
+function playRound(humanChoice, computerChoice) {
+  humanChoice = humanChoice.toLowerCase();
+
+  // player wins
+  if (humanChoice === `paper` && computerChoice === `rock`) {
+    console.log(`player win! ${humanChoice} beat ${computerChoice}! `);
+    return humanChoice;
+  } else if (humanChoice === `rock` && computerChoice === `scissors`) {
+    console.log(`player win! ${humanChoice} beat ${computerChoice}! `);
+    return humanChoice;
+  } else if (humanChoice === `scissors` && computerChoice === `paper`) {
+    console.log(`player win! ${humanChoice} beat ${computerChoice}! `);
+    return humanChoice;
+  }
+}
