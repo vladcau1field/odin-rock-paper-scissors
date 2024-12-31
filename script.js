@@ -47,4 +47,18 @@ function playRound(humanChoice, computerChoice) {
     console.log(`player win! ${humanChoice} beat ${computerChoice}! `);
     return humanChoice;
   }
+
+  // computer wins
+  else if (computerChoice === `paper` && humanChoice === `rock`) {
+    console.log(`computer win! ${computerChoice} beat ${humanChoice}! `);
+    return computerChoice;
+  } else if (computerChoice === `rock` && humanChoice === `scissors`) {
+    console.log(`computer win! ${computerChoice} beat ${humanChoice}! `);
+    return computerChoice;
+  } else if (computerChoice === `scissors` && humanChoice === `paper`) {
+    console.log(`computer win! ${computerChoice} beat ${humanChoice}! `);
+    return computerChoice;
+  } else {
+    console.log("damn it! how you did it?");
+  }
 }
