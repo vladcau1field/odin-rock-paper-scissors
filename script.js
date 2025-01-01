@@ -25,29 +25,33 @@ function getHumanChoice() {
   }
 }
 
-//logic of round
-function playRound(humanChoice, computerChoice) {
-  console.log(`you chose:${humanChoice} `);
-  console.log(`computer chose: ${computerChoice}`);
+function playGame() {
+  //logic of round
+  function playRound(humanChoice, computerChoice) {
+    console.log(`you chose:${humanChoice} `);
+    console.log(`computer chose: ${computerChoice}`);
 
-  // winner check
-  if (humanChoice === computerChoice) {
-    console.log("it's a tie!");
-  } else if (
-    (humanChoice === "rock" && computerChoice === "scissors") ||
-    (humanChoice === "paper" && computerChoice === "rock") ||
-    (humanChoice === "scissors" && computerChoice === "paper")
-  ) {
-    console.log(`you win! ${humanChoice} beats ${computerChoice}`);
-    humanScore++;
-  } else {
-    console.log(`you lose! ${computerChoice} beats ${humanChoice}`);
-    computerScore++;
+    // winner check
+    if (humanChoice === computerChoice) {
+      console.log("it's a tie!");
+    } else if (
+      (humanChoice === "rock" && computerChoice === "scissors") ||
+      (humanChoice === "paper" && computerChoice === "rock") ||
+      (humanChoice === "scissors" && computerChoice === "paper")
+    ) {
+      console.log(`you win! ${humanChoice} beats ${computerChoice}`);
+      humanScore++;
+    } else {
+      console.log(`you lose! ${computerChoice} beats ${humanChoice}`);
+      computerScore++;
+    }
+    console.log(
+      `damn look at it!  you - ${humanScore}, computer ${computerScore}`
+    );
   }
-  console.log(`score: you - ${humanScore}, computer ${computerScore}`);
-}
 
-//logic of game
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
+  //logic of game
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+  playRound(humanSelection, computerSelection);
+}
