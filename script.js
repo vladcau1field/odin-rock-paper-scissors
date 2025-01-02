@@ -46,15 +46,24 @@ function playGame() {
       console.log(`you lose! ${computerChoice} beats ${humanChoice}`);
       computerScore++;
     }
-    // console.log(
-    //   `damn look at it!  you - ${humanScore}, computer ${computerScore}`
-    // );
   }
 
-  //logic of game
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
+  //logic of game: 5 rounds
+  for (let i = 0; i < 5; i++) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+  }
+
+  // winner declaration!
+
+  if (humanScore > computerScore) {
+    alert("YEY! you won!!!");
+  } else if (computerScore > humanScore) {
+    alert("damn it! computer wins the game");
+  } else {
+    alert("it's a tie! ");
+  }
 }
 
 playGame();
