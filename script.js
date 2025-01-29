@@ -41,16 +41,17 @@ function playRound(event) {
   let computerChoice = getComputerChoice();
   console.log(`you chose: ${humanChoice}`);
   console.log(`computer chose: ${computerChoice}`);
+
+  winnerCheck(humanChoice, computerChoice);
 }
 
 // playgame function
 function playGame() {
   playRound();
-  winnerDeclaraion();
 }
 
 // winner check
-const winnerCheck = () => {
+function winnerCheck(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
     console.log("it's a tie!");
   } else if (
@@ -64,15 +65,20 @@ const winnerCheck = () => {
     console.log(`you lose! ${computerChoice} beats ${humanChoice}`);
     computerScore++;
   }
-};
+
+  if (humanScore === 5 || computerScore === 5) {
+    winnerDeclaration();
+  }
+}
 
 // winner declaration!
-const winnerDeclaraion = () => {
+function winnerDeclaration() {
   if (humanScore > computerScore) {
     alert("YEY! you won!!!");
-  } else if (computerScore > humanScore) {
-    alert("damn it! computer wins the game");
   } else {
-    alert("it's a tie! ");
+    alert("damn it! computer wins the game");
   }
-};
+
+  humanScore = 0;
+  computerScore = 0;
+}
