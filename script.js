@@ -2,6 +2,10 @@
 let humanScore = 0;
 let computerScore = 0;
 
+// making div for results
+const divResult = document.createElement("div");
+document.body.appendChild(divResult);
+
 // 3 buttons
 
 const buttonPaper = document.createElement("button");
